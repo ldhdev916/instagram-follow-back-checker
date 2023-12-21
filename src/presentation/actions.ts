@@ -77,7 +77,5 @@ export const actionUnfollow = userAction(unfollowSchema, async ({sessionId, targ
 })
 
 export const actionConfirm = userAction(z.void(), async () => {
-    cookies().set(CONFIRM_COOKIE_NAME, "보지 말라고", cookieOption)
-
     revalidatePath("/")
 })
