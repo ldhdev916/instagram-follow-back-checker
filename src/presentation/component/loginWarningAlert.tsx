@@ -1,8 +1,13 @@
 "use client"
-import {Alert, Box, Button} from "@mui/material";
+import {Alert, Box} from "@mui/material";
 import {actionConfirm} from "@/presentation/actions";
+import {useAction} from "next-safe-action/hook";
+import {LoadingButton} from "@mui/lab";
 
 export function LoginWarningAlert() {
+
+    const {execute, status} = useAction(actionConfirm)
+
     return <Box
         sx={{
             display: "flex",
@@ -18,13 +23,14 @@ export function LoginWarningAlert() {
         <Alert
             severity="warning"
             action={
-                <Button
+                <LoadingButton
                     color="inherit"
                     size="small"
-                    onClick={() => actionConfirm()}
+                    onClick={() => execute()}
+                    loading={status == "executing"}
                 >
                     확인
-                </Button>
+                </LoadingButton>
             }
             sx={{
                 alignItems: "center"
