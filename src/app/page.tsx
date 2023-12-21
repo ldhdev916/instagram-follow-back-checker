@@ -9,6 +9,8 @@ import {CONFIRM_COOKIE_NAME} from "@/common/consts";
 
 export default async function Home() {
 
+    console.log(cookies())
+
     const userId = getUserIdFromCookie()
 
     const sessions = userId ? await instagramService().getSessions(userId) : []
