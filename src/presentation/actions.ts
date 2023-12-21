@@ -14,7 +14,6 @@ import {ResponseCookie} from "next/dist/compiled/@edge-runtime/cookies";
 const cookieOption: Partial<ResponseCookie> = {
     secure: process.env.NODE_ENV === "production",
     httpOnly: true,
-    sameSite: "strict",
     maxAge: 60 * 60 * 24 * 400
 }
 
@@ -30,11 +29,6 @@ const userAction = createSafeActionClient({
 
         cookieStore.set(USER_ID_COOKIE_NAME, userId, cookieOption)
         cookieStore.set(CONFIRM_COOKIE_NAME, "보지 말라고", cookieOption)
-        cookieStore.set("test", "test", {
-            maxAge: 60 * 60 * 24,
-            secure: process.env.NODE_ENV === "production",
-            httpOnly: true
-        })
 
         return {userId}
     }
