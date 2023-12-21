@@ -8,6 +8,11 @@ const nextConfig = {
                 hostname: "*"
             }
         ]
+    },
+    experimental: {
+        serverActions: {
+            allowedOrigins: ["instagram.ldhdev.com"]
+        }
     }
 }
 
