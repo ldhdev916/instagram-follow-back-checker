@@ -9,6 +9,14 @@ import {zfd} from "zod-form-data";
 import {z} from "zod";
 import {instagramService} from "@/common/di";
 import {revalidatePath} from "next/cache";
+import {ResponseCookie} from "next/dist/compiled/@edge-runtime/cookies";
+
+const cookieOption: Partial<ResponseCookie> = {
+    secure: process.env.NODE_ENV === "production",
+    httpOnly: true,
+    sameSite: "strict",
+    maxAge: 60 * 60 * 24 * 400
+}
 
 const userAction = createSafeActionClient({
     async middleware() {
@@ -16,13 +24,12 @@ const userAction = createSafeActionClient({
 
         if (!userId) {
             userId = v4()
-
-            cookies().set(USER_ID_COOKIE_NAME, userId, {
-                secure: process.env.NODE_ENV === "production",
-                httpOnly: true,
-                sameSite: "strict"
-            })
         }
+
+        const cookieStore = cookies()
+
+        cookieStore.set(USER_ID_COOKIE_NAME, userId, cookieOption)
+        cookieStore.set(CONFIRM_COOKIE_NAME, "보지 말라고", cookieOption)
 
         return {userId}
     }
@@ -70,7 +77,7 @@ export const actionUnfollow = userAction(unfollowSchema, async ({sessionId, targ
 })
 
 export const actionConfirm = userAction(z.void(), async () => {
-    cookies().set(CONFIRM_COOKIE_NAME, "보지 말라고")
+    cookies().set(CONFIRM_COOKIE_NAME, "보지 말라고", cookieOption)
 
     revalidatePath("/")
 })
