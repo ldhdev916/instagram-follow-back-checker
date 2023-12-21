@@ -8,15 +8,12 @@ const inter = Inter({subsets: ['latin']})
 export const metadata: Metadata = {
     title: '인스타그램 맞팔로우 체커',
     icons: "/instagram.png",
+    manifest: "/manifest.json"
 }
 
 export default function RootLayout({children}: { children: ReactNode }) {
     return (
         <html lang="en">
-        <head>
-            <link rel="manifest" href="https://progressier.app/18Bt8G8xPCeCs4aQP1jz/progressier.json"/>
-            <script defer src="https://progressier.app/18Bt8G8xPCeCs4aQP1jz/script.js"></script>
-        </head>
         <body className={inter.className}>
         <ThemeRegistry>
             {children}
