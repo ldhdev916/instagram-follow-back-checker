@@ -45,11 +45,11 @@ export const actionLogin = userAction(loginSchema, async ({username, password}, 
 
 const twoFactorLoginSchema = zfd.formData({
     twoFactorId: zfd.text(z.string().min(1)),
-    code: zfd.numeric(z.number().min(100000).max(999999))
+    code: zfd.text(z.string().regex(/^\d{6}$/))
 })
 
 export const actionTwoFactorLogin = userAction(twoFactorLoginSchema, async ({code, twoFactorId}, {userId}) => {
-    await instagramService().twoFactorLogin(userId, twoFactorId, code.toString())
+    await instagramService().twoFactorLogin(userId, twoFactorId, code)
 
     revalidatePath("/")
 })
