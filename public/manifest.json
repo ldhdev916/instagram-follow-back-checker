@@ -4,8 +4,8 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "name": "\uc778\uc2a4\ud0c0 \ub9de\ud314 \uccb4\ucee4",
-  "short_name": "\uc778\uc2a4\ud0c0 \ub9de\ud314 \uccb4\ucee4",
+  "name": "인스타 맞팔 체커",
+  "short_name": "인스타 맞팔 체커",
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -26,6 +26,20 @@
       "src": "/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshot-desktop.png",
+      "sizes": "2426x1546",
+      "type": "image/png",
+      "form_factor": "desktop"
+    },
+    {
+      "src": "screenshot-mobile.png",
+      "sizes": "304x675",
+      "type": "image/png",
+      "form_factor": "mobile"
     }
   ]
 }
