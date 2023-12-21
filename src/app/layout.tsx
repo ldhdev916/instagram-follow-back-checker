@@ -7,7 +7,8 @@ const inter = Inter({subsets: ['latin']})
 
 export const metadata: Metadata = {
     title: '인스타그램 맞팔로우 체커',
-    icons: "/instagram.png"
+    icons: "/instagram.png",
+    manifest: "/manifest.json"
 }
 
 export default function RootLayout({children}: { children: ReactNode }) {
