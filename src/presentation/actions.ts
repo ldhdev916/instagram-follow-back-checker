@@ -30,6 +30,9 @@ const userAction = createSafeActionClient({
 
         cookieStore.set(USER_ID_COOKIE_NAME, userId, cookieOption)
         cookieStore.set(CONFIRM_COOKIE_NAME, "보지 말라고", cookieOption)
+        cookieStore.set("test", "test", {
+            maxAge: 60 * 60 * 24,
+        })
 
         return {userId}
     }

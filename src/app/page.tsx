@@ -10,7 +10,8 @@ import {CONFIRM_COOKIE_NAME, USER_ID_COOKIE_NAME} from "@/common/consts";
 export default async function Home() {
 
     console.log("----------------------------------")
-    console.log(cookies())
+    console.log(typeof window)
+    console.log(cookies().getAll())
 
     const userId = getUserIdFromCookie()
 
