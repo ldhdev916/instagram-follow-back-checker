@@ -10,8 +10,20 @@
   },
   "pnpm": {
     "supportedArchitectures": {
-      "os": ["darwin", "linux"],
-      "cpu": ["x64", "arm64"]
+      "os": [
+        "darwin",
+        "linux",
+        "current"
+      ],
+      "cpu": [
+        "x64",
+        "arm64",
+        "current"
+      ],
+      "libc": [
+        "musl",
+        "current"
+      ]
     }
   },
   "dependencies": {
