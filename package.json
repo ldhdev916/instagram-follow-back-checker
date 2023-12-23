@@ -12,16 +12,12 @@
     "supportedArchitectures": {
       "os": [
         "darwin",
-        "linux",
+        "linuxmusl",
         "current"
       ],
       "cpu": [
         "x64",
         "arm64",
-        "current"
-      ],
-      "libc": [
-        "musl",
         "current"
       ]
     }
