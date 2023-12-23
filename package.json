@@ -8,20 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "pnpm": {
-    "supportedArchitectures": {
-      "os": [
-        "darwin",
-        "linuxmusl",
-        "current"
-      ],
-      "cpu": [
-        "x64",
-        "arm64",
-        "current"
-      ]
-    }
-  },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.0.0",
     "@emotion/cache": "^11.11.0",
